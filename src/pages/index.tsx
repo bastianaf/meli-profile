@@ -1,11 +1,10 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-
 import { Stack, StackDivider, Text, Image } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   return (
     <Stack pb="112px" spacing={10}>
+      <br />
       <Stack mt="-72px">
         <h2> Carrousel here</h2>
       </Stack>
