@@ -1,12 +1,13 @@
 import type { NextPage } from 'next'
 import { Stack, StackDivider, Text, Image } from "@chakra-ui/react";
+import Carousel from '@components/Carousel';
+import HomeSlideData from '@data/HomeSlideImages';
 
 const Home: NextPage = () => {
   return (
     <Stack pb="112px" spacing={10}>
-      <br />
-      <Stack mt="-72px">
-        <h2> Carrousel here</h2>
+      <Stack mt="-1px">
+       <Carousel slides={HomeSlideData}></Carousel>
       </Stack>
       <Stack
         bg="white"

@@ -76,7 +76,7 @@ export default function Nav() {
                 </FormControl>
               </Stack>
               <Stack alignItems="center" direction="row">
-                <Image height={10} src="/img/envios-gratis.webp" width={340} />
+                <Image height={10} src="https://http2.mlstatic.com/D_NQ_894106-MLA50803501735_072022-OO.webp" width={340} />
               </Stack>
             </Stack>
             <Stack

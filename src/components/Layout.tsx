@@ -6,10 +6,10 @@ import Footer from "./Footer";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Box minH="100vh">
-      <Alert status="error">
+      <Alert status='warning'>
         <Stack direction="row" mx="auto">
           <AlertIcon />
-          <AlertTitle>Esta no es la pagina oficial de mercadolibre</AlertTitle>
+           <AlertTitle>¡Esta no es la web oficial de mercado libre !</AlertTitle>
         </Stack>
       </Alert>
       <Nav />
