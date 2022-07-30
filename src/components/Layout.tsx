@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </Stack>
       </Alert>
       <Nav />
-      <Box maxWidth="container.xl" mx="auto" my="28px">
+      <Box maxWidth="container.xl" mx="auto" mb="28px">
         {children}
       </Box>
       <Footer />

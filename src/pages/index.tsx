@@ -1,13 +1,16 @@
 import type { NextPage } from 'next'
 import { Stack, StackDivider, Text, Image } from "@chakra-ui/react";
 import Carousel from '@components/Carousel';
-import HomeSlideData from '@data/HomeSlideImages';
+import ProductsBlock from '@components/Products/ProductsBlock';
+import HomeSlideImg from '@data/home-slide-images';
+import Offers from "@data/offers"
+import Recomendations from "@data/last-visit-recomendations";
 
 const Home: NextPage = () => {
   return (
     <Stack pb="112px" spacing={10}>
-      <Stack mt="-1px">
-       <Carousel slides={HomeSlideData}></Carousel>
+      <Stack>
+       <Carousel slides={HomeSlideImg}></Carousel>
       </Stack>
       <Stack
         bg="white"
@@ -37,7 +40,7 @@ const Home: NextPage = () => {
           <Stack justifyContent="center" lineHeight="0.9">
             <Text fontSize="18px">Cuotas sin tarjeta</Text>
             <Text color="blue.400" fontSize="14px">
-              Conocé Mercado Crédito
+              Conoce Mercado Crédito
             </Text>
           </Stack>
         </Stack>
@@ -71,35 +74,18 @@ const Home: NextPage = () => {
 
       <Stack>
         <Stack alignItems="center" direction="row">
+          <Text fontSize="26px">Basado en tu última visita</Text>
+          <Text color="blue.400">Ver historial</Text>
+        </Stack>
+         <ProductsBlock products={Recomendations}></ProductsBlock>
+      </Stack>
+
+      <Stack>
+        <Stack alignItems="center" direction="row">
           <Text fontSize="26px">Ofertas</Text>
           <Text color="blue.400">Ver todas</Text>
         </Stack>
-        <Stack direction="row" spacing={6}>
-          {/* {mock.map((item) => (
-            <Stack
-              key={item.img}
-              _hover={{ shadow: "md" }}
-              bg="white"
-              borderRadius="md"
-              divider={<StackDivider />}
-            >
-              <Image src={item.img} />
-              <Stack pb="16px" px="12px" spacing={0}>
-                <Stack alignItems="center" direction="row">
-                  <Text fontSize="22px">{formatPrice(item.price)}</Text>
-                  <Text color="green.400" fontSize="sm">
-                    {item.discount}% off
-                  </Text>
-                </Stack>
-                {item.free_shipping && (
-                  <Text color="green.400" fontSize="sm" fontWeight="bold">
-                    Envío gratis
-                  </Text>
-                )}
-              </Stack>
-            </Stack>
-          ))} */}
-        </Stack>
+         <ProductsBlock products={Offers}></ProductsBlock>
       </Stack>
 
       <Stack>

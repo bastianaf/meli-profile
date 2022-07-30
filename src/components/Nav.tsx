@@ -26,7 +26,7 @@ export default function Nav() {
   }
 
   return (
-    <Stack>
+    <Stack paddingY={0}>
       <Box backgroundColor="primary.500" boxShadow="sm" paddingY={2}>
         <Container maxWidth="container.xl" paddingX={0}>
           <Stack spacing={3}>
