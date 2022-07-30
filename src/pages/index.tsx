@@ -1,13 +1,16 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-
-import { Stack, StackDivider, Text, Image } from "@chakra-ui/react";
+import { Stack, SimpleGrid, StackDivider, Text, Image, Box, Spacer} from "@chakra-ui/react";
+import Carousel from '@components/Carousel';
+import ProductsBlock from '@components/Products/ProductsBlock';
+import HomeSlideImg from '@data/home-slide-images';
+import Offers from "@data/offers"
+import Recomendations from "@data/last-visit-recomendations";
 
 const Home: NextPage = () => {
   return (
     <Stack pb="112px" spacing={10}>
-      <Stack mt="-72px">
-        <h2> Carrousel here</h2>
+      <Stack>
+       <Carousel slides={HomeSlideImg}></Carousel>
       </Stack>
       <Stack
         bg="white"
@@ -37,7 +40,7 @@ const Home: NextPage = () => {
           <Stack justifyContent="center" lineHeight="0.9">
             <Text fontSize="18px">Cuotas sin tarjeta</Text>
             <Text color="blue.400" fontSize="14px">
-              Conocé Mercado Crédito
+              Conoce Mercado Crédito
             </Text>
           </Stack>
         </Stack>
@@ -71,35 +74,18 @@ const Home: NextPage = () => {
 
       <Stack>
         <Stack alignItems="center" direction="row">
+          <Text fontSize="26px">Basado en tu última visita</Text>
+          <Text color="blue.400">Ver historial</Text>
+        </Stack>
+         <ProductsBlock products={Recomendations}></ProductsBlock>
+      </Stack>
+
+      <Stack>
+        <Stack alignItems="center" direction="row">
           <Text fontSize="26px">Ofertas</Text>
           <Text color="blue.400">Ver todas</Text>
         </Stack>
-        <Stack direction="row" spacing={6}>
-          {/* {mock.map((item) => (
-            <Stack
-              key={item.img}
-              _hover={{ shadow: "md" }}
-              bg="white"
-              borderRadius="md"
-              divider={<StackDivider />}
-            >
-              <Image src={item.img} />
-              <Stack pb="16px" px="12px" spacing={0}>
-                <Stack alignItems="center" direction="row">
-                  <Text fontSize="22px">{formatPrice(item.price)}</Text>
-                  <Text color="green.400" fontSize="sm">
-                    {item.discount}% off
-                  </Text>
-                </Stack>
-                {item.free_shipping && (
-                  <Text color="green.400" fontSize="sm" fontWeight="bold">
-                    Envío gratis
-                  </Text>
-                )}
-              </Stack>
-            </Stack>
-          ))} */}
-        </Stack>
+         <ProductsBlock products={Offers}></ProductsBlock>
       </Stack>
 
       <Stack>
@@ -107,14 +93,28 @@ const Home: NextPage = () => {
           <Text fontSize="26px">Beneficios de Mercado Puntos</Text>
           <Text color="blue.400">Ver todos los beneficios</Text>
         </Stack>
+
         <Stack direction="row">
-          <Stack borderRadius="md" flex={1} h="250px" overflow="hidden">
-            <Image src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/hbo/widget/hbo-max-mla-mco-mlc@2x.jpg" />
-          </Stack>
-          <Stack borderRadius="md" flex={1} h="250px" overflow="hidden">
-            <Image src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/paramount/mla/widget/paramount-widget-mla@2x.jpg" />
-          </Stack>
+          <SimpleGrid columns={2} spacing={12} borderRadius="md" flex={1} h="250px" background='#3C034E' rounded='5'  overflow="hidden">
+            <Box  h='75px' w='50%' p={4} alignContent='center' >
+              <Image rounded='5' src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/hbomax/logo/logoSquare@2x.png?v=1" />
+            </Box>
+            <Box alignContent='center'  >
+              <Image src="https://http2.mlstatic.com/resources/frontend/statics/loyal/hbo/widget/hbo-max-mla-mlc-mco-v2@2x.jpg" />
+            </Box>
+          </SimpleGrid>
         </Stack>
+
+        <Spacer />
+
+        <Stack  direction="row">
+        <SimpleGrid columns={1} spacing={10} borderRadius="md" flex={1} h="250px" background='#FEE600' rounded='5'  overflow="hidden">
+            <Box  alignContent='center'  >
+              <Image src="https://tpc.googlesyndication.com/simgad/8079837574260526472" />
+            </Box>
+          </SimpleGrid>
+        </Stack>
+
       </Stack>
     </Stack>
   );
