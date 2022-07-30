@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Stack, StackDivider, Text, Image } from "@chakra-ui/react";
+import { Stack, SimpleGrid, StackDivider, Text, Image, Box, Spacer} from "@chakra-ui/react";
 import Carousel from '@components/Carousel';
 import ProductsBlock from '@components/Products/ProductsBlock';
 import HomeSlideImg from '@data/home-slide-images';
@@ -93,14 +93,28 @@ const Home: NextPage = () => {
           <Text fontSize="26px">Beneficios de Mercado Puntos</Text>
           <Text color="blue.400">Ver todos los beneficios</Text>
         </Stack>
+
         <Stack direction="row">
-          <Stack borderRadius="md" flex={1} h="250px" overflow="hidden">
-            <Image src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/hbo/widget/hbo-max-mla-mco-mlc@2x.jpg" />
-          </Stack>
-          <Stack borderRadius="md" flex={1} h="250px" overflow="hidden">
-            <Image src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/paramount/mla/widget/paramount-widget-mla@2x.jpg" />
-          </Stack>
+          <SimpleGrid columns={2} spacing={12} borderRadius="md" flex={1} h="250px" background='#3C034E' rounded='5'  overflow="hidden">
+            <Box  h='75px' w='50%' p={4} alignContent='center' >
+              <Image rounded='5' src="https://http2.mlstatic.com/resources/frontend/statics/loyal/partners/hbomax/logo/logoSquare@2x.png?v=1" />
+            </Box>
+            <Box alignContent='center'  >
+              <Image src="https://http2.mlstatic.com/resources/frontend/statics/loyal/hbo/widget/hbo-max-mla-mlc-mco-v2@2x.jpg" />
+            </Box>
+          </SimpleGrid>
         </Stack>
+
+        <Spacer />
+
+        <Stack  direction="row">
+        <SimpleGrid columns={1} spacing={10} borderRadius="md" flex={1} h="250px" background='#FEE600' rounded='5'  overflow="hidden">
+            <Box  alignContent='center'  >
+              <Image src="https://tpc.googlesyndication.com/simgad/8079837574260526472" />
+            </Box>
+          </SimpleGrid>
+        </Stack>
+
       </Stack>
     </Stack>
   );

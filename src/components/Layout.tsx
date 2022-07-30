@@ -17,6 +17,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </Box>
       <Footer />
+      <Alert status='error'>
+        <Stack direction="row" mx="auto">
+          <AlertIcon />
+           <AlertTitle>¡Esta no es la web oficial de mercado libre !</AlertTitle>
+        </Stack>
+      </Alert>
     </Box>
   );
 }
