@@ -36,6 +36,7 @@ export default function Nav() {
                   <a>
                     <Image
                       height={34}
+                      alt="meli-logo"
                       objectFit="contain"
                       src="/img/logo.png"
                       width={134}
@@ -47,7 +48,7 @@ export default function Nav() {
                     <Stack
                       alignItems="center"
                       backgroundColor="white"
-                      borderRadius="sm"
+                    borderRadius="sm"
                       boxShadow="sm"
                       direction="row"
                       divider={<StackDivider />}
@@ -106,7 +107,7 @@ export default function Nav() {
                       Enviar a
                     </Text>
                     <Text fontSize="sm" lineHeight="shorter">
-                      Capital Federal
+                      Valparaiso
                     </Text>
                   </Stack>
                 </Stack>
@@ -114,10 +115,9 @@ export default function Nav() {
                   color="blackAlpha.700"
                   direction="row"
                   fontSize="sm"
-                  spacing={5}
+                spacing={5}
                 >
-                  <Text cursor="pointer">
-                    Categorias <Icon as={MdKeyboardArrowDown} />
+                  <Text cursor="pointer"> Categorias
                   </Text>
                   <Text cursor="pointer">Ofertas</Text>
                   <Text cursor="pointer">Historial</Text>
@@ -128,9 +128,9 @@ export default function Nav() {
                 </Stack>
               </Stack>
               <Stack direction="row" fontSize="sm" spacing={6}>
-                <Text cursor="pointer">Creá tu cuenta</Text>
-                <Text cursor="pointer">Ingresá</Text>
-                <Text cursor="pointer">Compras</Text>
+                <Link href="/profile"> Mi Perfil </Link>
+                <Text cursor="pointer">Mis Compras</Text>
+                <Text cursor="pointer">Favoritos</Text>
                 <Icon
                   as={BsCart2}
                   color="blackAlpha.700"

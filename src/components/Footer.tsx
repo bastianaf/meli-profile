@@ -11,7 +11,7 @@ export default function Footer() {
       spacing={0}
        direction='row'
     >
-      <Box px='7%' py="20px" >
+      <Box px='7%' py="20px">
         <Stack direction="row" py="2px" fontSize="13px" spacing={5}>
             <Text>Trabaja con nosotros</Text>
             <Text>Términos y condiciones</Text>

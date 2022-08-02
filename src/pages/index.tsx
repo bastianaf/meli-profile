@@ -1,12 +1,16 @@
-import type { NextPage } from 'next'
+import type { NextPageWithLayout } from '../pages/_app'
+
 import { Stack, SimpleGrid, StackDivider, Text, Image, Box, Spacer} from "@chakra-ui/react";
 import Carousel from '@components/Carousel';
 import ProductsBlock from '@components/Products/ProductsBlock';
 import HomeSlideImg from '@data/home-slide-images';
 import Offers from "@data/offers"
 import Recomendations from "@data/last-visit-recomendations";
+import Layout from '@components/layouts/Layout';
+import HomeLayout from '@components/layouts/HomeLayout';
 
-const Home: NextPage = () => {
+
+const Home: NextPageWithLayout  = () => {
   return (
     <Stack pb="112px" spacing={10}>
       <Stack>
@@ -118,6 +122,17 @@ const Home: NextPage = () => {
       </Stack>
     </Stack>
   );
+}
+
+Home.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <Layout>
+      <HomeLayout>
+        {page}
+      </HomeLayout>
+    </Layout>
+
+  )
 }
 
 export default Home
