@@ -1,12 +1,23 @@
-import type { NextPage } from 'next'
-import { Stack} from "@chakra-ui/react";
+import type { NextPageWithLayout } from '../pages/_app'
 
-const Profile: NextPage = () => {
+import ProfileLayout from '@components/layouts/ProfileLayout'
+import Layout from '@components/layouts/Layout';
+
+const Profile: NextPageWithLayout = () => {
   return (
-    <Stack pb="112px" spacing={10}>
-          PROFILE
-    </Stack>
+    <h2> TEST </h2>
   );
+}
+
+Profile.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <Layout>
+      <ProfileLayout>
+        {page}
+      </ProfileLayout>
+    </Layout>
+
+  )
 }
 
 export default Profile

@@ -107,7 +107,7 @@ export default function Nav() {
                       Enviar a
                     </Text>
                     <Text fontSize="sm" lineHeight="shorter">
-                      Capital Federal
+                      Valparaiso
                     </Text>
                   </Stack>
                 </Stack>
@@ -118,7 +118,6 @@ export default function Nav() {
                 spacing={5}
                 >
                   <Text cursor="pointer"> Categorias
-                   {/* <Icon as={MdKeyboardArrowDown} /> */} 
                   </Text>
                   <Text cursor="pointer">Ofertas</Text>
                   <Text cursor="pointer">Historial</Text>
