@@ -1,12 +1,13 @@
-import type { AppProps } from "next/app";
-import type { ReactElement, ReactNode } from 'react'
-import type { NextPage } from 'next'
+import type { AppProps } from "next/app"
+import {
+  ReactElement,
+  ReactNode,
+} from "react"
+import type { NextPage } from "next"
+import { UserProvider } from "src/context/user/UserProvider"
 
-import Head from "next/head";
-import { ChakraProvider, Box, Alert, AlertIcon, AlertTitle, Stack } from "@chakra-ui/react";
-
-import theme from "../theme";
-import '../styles/globals.css';
+import Head from "next/head"
+import "../styles/globals.css"
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -23,21 +24,24 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <>
-      <Head>
-          <title>Mercadolibre</title>
-          <meta content="initial-scale=1.0, width=device-width" name="viewport" />
-      </Head>
-
-      <Component {...pageProps} />
+      <UserProvider>
+          <Head>
+            <title>Mercadolibre</title>
+            <meta
+              content="initial-scale=1.0, width=device-width"
+              name="viewport"
+            />
+          </Head>
+          <Component {...pageProps} />
+      </UserProvider>
     </>
-  );
+  )
 }
-
 
 export default MyApp
 
-
-{/* <Box minH="100vh">
+{
+  /* <Box minH="100vh">
 <Alert status='warning'>
   <Stack direction="row" mx="auto">
     <AlertIcon />
@@ -55,4 +59,5 @@ export default MyApp
      <AlertTitle>¡Esta no es la web oficial de mercado libre !</AlertTitle>
   </Stack>
 </Alert>
-</Box> */}
+</Box> */
+}
