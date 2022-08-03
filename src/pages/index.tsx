@@ -19,24 +19,25 @@ import Offers from "@data/offers"
 import Recomendations from "@data/last-visit-recomendations"
 import Layout from "@components/layouts/Layout"
 import HomeLayout from "@components/layouts/HomeLayout"
+import { useUser } from "../hooks/useUser"
 
 const Home: NextPageWithLayout = () => {
 
-  const { userState, updateUserProfile } = useContext(UserContext);
+  //const { userState, updateUserProfile } = useContext(UserContext);
 
-  const fetchedUser: User = {
+  const { fetchUser } = useUser();
+
+  /* const fetchedUser: User = {
     userId: 'id',
     name: 'Jhon',
     nickName: 'Dark Knight',
     email: 'jdoe@fakemail.com'
   }
+   */
+  useEffect( () => {
+    fetchUser()
+  },[])
 
-  useEffect(() => {
-    console.log("USE  EFFECT !")
-    updateUserProfile(fetchedUser)
-    console.log(userState)
-  }, [])
-  
   return (
     <Stack pb="112px" spacing={10}>
 

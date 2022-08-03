@@ -3,6 +3,7 @@ import { UserState, User } from '../../interfaces';
 
 export type UserContextProps = {
     userState: UserState;
+    fetchUser: () => Promise<void>;
     updateUserProfile: (user: User) => void;
 } 
 
