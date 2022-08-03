@@ -26,14 +26,6 @@ const Home: NextPageWithLayout = () => {
   //const { userState, updateUserProfile } = useContext(UserContext);
 
   const { fetchUser } = useUser();
-
-  /* const fetchedUser: User = {
-    userId: 'id',
-    name: 'Jhon',
-    nickName: 'Dark Knight',
-    email: 'jdoe@fakemail.com'
-  }
-   */
   useEffect( () => {
     fetchUser()
   },[])
