@@ -1,10 +1,11 @@
 export type User = UserProfile | null;
 
 interface UserProfile {
-    userId: 'id',
-    name: 'Jhon',
-    nickName: 'Dark Knight',
-    email: 'jdoe@fakemail.com'
+    apellido: string,
+    id_usuario: number,
+    imagen: string
+    nivel: string,
+    nombre: string
 }
 
 export interface UserState {

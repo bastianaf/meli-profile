@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  async redirects() {
+  /* async redirects() {
     return [
       {
         source: '/meli-api/:path*',
@@ -10,7 +10,7 @@ const nextConfig = {
         permanent: true,
       },
     ]
-  },
+  }, */
 }
 
 module.exports = nextConfig

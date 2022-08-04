@@ -3,15 +3,11 @@ import type { NextPageWithLayout } from "../pages/_app"
 import {
   Stack,
   SimpleGrid,
-  StackDivider,
   Text,
   Image,
   Box,
   Spacer,
 } from "@chakra-ui/react"
-import { useContext, useEffect } from "react"
-import { UserContext } from "../context/user/UserContext"
-import { User } from "../interfaces"
 import Carousel from "@components/Carousel"
 import ProductsBlock from "@components/Products/ProductsBlock"
 import HomeSlideImg from "@data/home-slide-images"
@@ -19,21 +15,12 @@ import Offers from "@data/offers"
 import Recomendations from "@data/last-visit-recomendations"
 import Layout from "@components/layouts/Layout"
 import HomeLayout from "@components/layouts/HomeLayout"
-import { useUser } from "../hooks/useUser"
+
 
 const Home: NextPageWithLayout = () => {
 
-  //const { userState, updateUserProfile } = useContext(UserContext);
-
-  const { fetchUser } = useUser();
-  useEffect( () => {
-    fetchUser()
-  },[])
-
   return (
     <Stack pb="112px" spacing={10}>
-
-      {/* <button onClick={()=> updateUserProfile(fetchedUser) }> LOGIN </button> */}
       <Stack>
         <Carousel slides={HomeSlideImg}></Carousel>
       </Stack>
