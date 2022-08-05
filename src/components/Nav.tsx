@@ -5,6 +5,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useUser } from "../hooks/useUser";
+
 import {
   Box,
   Container,
@@ -18,12 +20,9 @@ import {
 } from "@chakra-ui/react";
 
 export default function Nav() {
-  const [value, setValue] = useState("");
-  const router = useRouter();
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    router.push(`/search?q=${value}`);
-  }
+
+  const { userProfile } = useUser();
+  const userName: string = `${userProfile?.nombre.toString()}`;
 
   return (
     <Stack paddingY={0}>
@@ -44,11 +43,11 @@ export default function Nav() {
                   </a>
                 </Link>
                 <FormControl>
-                  <form onSubmit={handleSubmit}>
+                  <form >
                     <Stack
                       alignItems="center"
                       backgroundColor="white"
-                    borderRadius="sm"
+                      borderRadius="sm"
                       boxShadow="sm"
                       direction="row"
                       divider={<StackDivider />}
@@ -62,9 +61,7 @@ export default function Nav() {
                         paddingX={2}
                         placeholder="Buscar productos, marcas y más..."
                         px={2}
-                        value={value}
                         variant="unstyled"
-                        onChange={(e) => setValue(e.target.value)}
                       />
                       <Icon
                         as={AiOutlineSearch}
@@ -128,8 +125,14 @@ export default function Nav() {
                 </Stack>
               </Stack>
               <Stack direction="row" fontSize="sm" spacing={6}>
-                <Link href="/profile"> Mi Perfil </Link>
-                <Text cursor="pointer">Mis Compras</Text>
+                <Link href={`/profile`}> 
+                  <a>{ userName }</a>
+                </Link>
+                <Text cursor="pointer">
+                <Link href={`/purchases`}> 
+                  Mis Compras 
+                </Link>
+                </Text>
                 <Text cursor="pointer">Favoritos</Text>
                 <Icon
                   as={BsCart2}

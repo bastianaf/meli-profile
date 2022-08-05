@@ -2,7 +2,7 @@ import { UserState, User } from '../../interfaces';
 
 type UserAction = 
     | { type: 'login', payload: User }
-    | { type: 'logout', payload: { id: string } };
+    | { type: 'logout', payload: { } };
 
 export const UserReducer = ( state: UserState, action: UserAction ): UserState => {
 

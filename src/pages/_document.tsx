@@ -1,7 +1,3 @@
-import {
-  useState,
-  useMemo,
-} from "react"
 import { Html, Head, Main, NextScript } from "next/document"
 
 export default function Document() {
@@ -10,11 +6,10 @@ export default function Document() {
         <Head>
           <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-       
+          <body>
+            <Main />
+            <NextScript />
+          </body>
     </Html>
   )
 }
