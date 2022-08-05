@@ -8,7 +8,23 @@ interface UserProfile {
     nombre: string
 }
 
-export interface UserState {
+export interface PurchaseState {
     authenitcated: boolean,
     userProfile: User
 }
+
+export type Purchase = PurchaseDetail | null;
+
+interface PurchaseDetail {
+    apellido: string,
+    id_usuario: number,
+    imagen: string
+    nivel: string,
+    nombre: string
+}
+
+export interface PurchaseState {
+    page: number,
+    offset: number,
+    purchaseDetail: Purchase
+}    

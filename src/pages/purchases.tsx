@@ -1,7 +1,7 @@
 import type { NextPageWithLayout } from "../pages/_app"
 import SidebarLayout from "@components/layouts/SideBarLayout"
 import Layout from "@components/layouts/Layout"
-import DataPill from "@components/DataPill"
+import PurchaseCard from "@components/Purchases/PurchaseCard"
 import { useUser } from "../hooks/useUser"
 import {
   SimpleGrid,
@@ -25,18 +25,9 @@ const Purchases: NextPageWithLayout = () => {
 
       <Stack pt="5" spacing={3}>
         <VStack direction="row">
-          <Stack
-            bg="white"
-            justifyContent="space-between"
-            p="4"
-            w="100%"
-            rounded="md"
-            color="blackAlpha.700"
-            fontSize="md"
-          >
-            <DataPill name={"Detalle"} value="Compra A"/>
-            <DataPill name={"Detalle"} value="Compra B"/>
-          </Stack>
+          
+            <PurchaseCard name={"Detalle"} value="Compra A"/>
+          
         </VStack>
       </Stack>
 
