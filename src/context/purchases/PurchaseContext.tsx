@@ -1,10 +1,10 @@
 import { createContext } from "react";
-import { UserState, User } from '../../interfaces';
+import { PurchaseState, Purchases } from '../../interfaces';
 
-export type UserContextProps = {
-    userState: UserState;
-    fetchUser: () => Promise<void>;
-    updateUserProfile: (user: User) => void;
+export type PurchaseContextProps = {
+    purchaseState: PurchaseState;
+    fetchUserPurchases: () => Promise<void>;
+    updatePurchasesResult: (purchases: Purchases) => void;
 } 
 
-export const UserContext = createContext<UserContextProps>({} as UserContextProps );
+export const PurchaseContext = createContext<PurchaseContextProps>({} as PurchaseContextProps );

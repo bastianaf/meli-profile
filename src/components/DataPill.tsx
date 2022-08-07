@@ -1,6 +1,6 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 
-export default function FetchUser({ name,  value }: { name: string,  value: any }) {
+export default function DataPill({ name,  value }: { name: string,  value: any }) {
 
   return (
         <>

@@ -1,17 +1,23 @@
-import { PurchaseState, Purchase } from '../../interfaces';
+import { PurchaseState, Purchases } from '../../interfaces';
 
 type PurchaseAction = 
-    | { type: 'next_result', payload: Purchase }
-    | { type: 'prev_result', payload: { } };
+    | { type: 'load_result', payload: Purchases }
+    | { type: 'set_pagination', payload: null };
 
 export const PurchaseReducer = ( state: PurchaseState, action: PurchaseAction ): PurchaseState => {
 
     switch ( action.type ) {
-        case 'next_result':
+        case 'load_result':
             return {
                 ...state,
-                authenitcated: true,
-                userProfile: action.payload
+                user_purchases: action.payload
+            }
+        
+        case 'set_pagination':
+            return {
+                ...state,
+                /* pagination:
+                 */
             }
 
         default:
@@ -19,3 +25,9 @@ export const PurchaseReducer = ( state: PurchaseState, action: PurchaseAction ):
     }
 
 }
+
+/* total: number,
+    limit: number,
+    offset: number,
+    page: number,
+    user_purchases: Purchases */

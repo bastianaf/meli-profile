@@ -8,23 +8,39 @@ interface UserProfile {
     nombre: string
 }
 
-export interface PurchaseState {
+export interface UserState {
     authenitcated: boolean,
     userProfile: User
 }
 
-export type Purchase = PurchaseDetail | null;
+export type Purchases = Array<PurchaseDetail>;
 
-interface PurchaseDetail {
-    apellido: string,
-    id_usuario: number,
-    imagen: string
-    nivel: string,
-    nombre: string
+export interface PurchaseDetail {
+    id_compra: number | string,
+    titulo: string,
+    precio: {
+        total: number,
+        moneda: string
+    },
+    cantidad: number,
+    fecha: string,
+    imagen: string,
+    vendedor: {
+        id: number,
+        nickname: string
+    },
+    id_transaccion: number,
+    id_envio: number
 }
 
 export interface PurchaseState {
-    page: number,
+    pagination: Pagination,
+    user_purchases: Purchases
+}
+
+export interface Pagination {
+    total: number,
+    limit: number,
     offset: number,
-    purchaseDetail: Purchase
-}    
+    page: number
+}
