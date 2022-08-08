@@ -12,6 +12,7 @@ import {
   VStack,
   Text,
   Button,
+  CircularProgress,
 } from "@chakra-ui/react"
 
 const UserPurchaseDetail: NextPageWithLayout = () => {
@@ -118,10 +119,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
     return (
       <>
         <PurchaseDetailHeader/>
-        <p>
-           LOADING ... 
-        </p>
-
+        <CircularProgress isIndeterminate color='yellow.300' />
       </>
     )
   } else {

@@ -17,7 +17,7 @@ export default function DataPill({ name,  value }: { name: string,  value: any }
                 {name}
               </Box>
               <Box alignContent="left">{value || ''}</Box>
-            </SimpleGrid>
+        </SimpleGrid>
         </>
   );
 }
