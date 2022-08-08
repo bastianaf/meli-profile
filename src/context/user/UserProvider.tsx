@@ -30,7 +30,7 @@ export const UserProvider = ({ children }: props) => {
       if(res){    
           if (res.ok) {
           const data = await (res.json())
-          console.log("FETCH RESPONSE", data )
+          console.log("USER FETCH RESPONSE", data )
           updateUserProfile(data)
       } else {
           throw await res.text();

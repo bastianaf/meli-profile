@@ -5,7 +5,6 @@ import {
   AlertTitle,
   Stack,
   Text,
-  Container,
 } from "@chakra-ui/react"
 
 export default function Footer() {

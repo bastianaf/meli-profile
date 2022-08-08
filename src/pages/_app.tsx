@@ -5,6 +5,7 @@ import {
 } from "react"
 import type { NextPage } from "next"
 import { UserProvider } from "../context/user/UserProvider"
+import { PurchaseProvider } from "../context/purchases/PurchaseProvider"
 import FetchUser from "@components/FetchUser"
 import "../styles/globals.css"
 import Head from "next/head"
@@ -25,15 +26,17 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <>
       <UserProvider>
-        <Head>
-        <title>Mercadolibre</title>
-            <meta
-              content="initial-scale=1.0, width=device-width"
-              name="viewport"
-          />
-        </Head>
-          <FetchUser/>
+        <PurchaseProvider>
+          <Head>
+          <title>Mercadolibre</title>
+              <meta
+                content="initial-scale=1.0, width=device-width"
+                name="viewport"
+            />
+          </Head>
           {getLayout(<Component {...pageProps} />)}
+        </PurchaseProvider>
+        <FetchUser/>
       </UserProvider>
     </>
   )
