@@ -2,7 +2,8 @@ import { PurchaseState, Purchases, Pagination } from '../../interfaces';
 
 type PurchaseAction = 
     | { type: 'load_result', payload: Purchases }
-    | { type: 'set_pagination', payload: Pagination, callback:  Promise<void> };
+    | { type: 'set_pagination', payload: Pagination, callback:  Promise<void> }
+    | { type: 'toggle_loading' };
 
 export const PurchaseReducer = ( state: PurchaseState, action: PurchaseAction ): PurchaseState => {
 
@@ -10,23 +11,22 @@ export const PurchaseReducer = ( state: PurchaseState, action: PurchaseAction ):
         case 'load_result':
             return {
                 ...state,
-                user_purchases: action.payload
+                userPurchases: action.payload
             }
-        
+
         case 'set_pagination':
             return {
                 ...state,
                 pagination: action.payload,
             }
+        case 'toggle_loading':  
+            return {
+                ...state,
+                loading: !state.loading,
+            }  
 
         default:
             return state;
     }
 
 }
-
-/* total: number,
-    limit: number,
-    offset: number,
-    page: number,
-    user_purchases: Purchases */
