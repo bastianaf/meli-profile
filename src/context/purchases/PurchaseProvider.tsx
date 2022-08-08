@@ -1,17 +1,18 @@
 import { useReducer } from "react"
 
 import { PurchaseContext } from "./PurchaseContext"
-import { PurchaseState, Purchases } from "../../interfaces"
+import { PurchaseState, Purchases, Pagination } from "../../interfaces"
 import { PurchaseReducer } from "./PurchaseReducer"
 
 const INITIAL_STATE: PurchaseState = {
     pagination: {
         total: 10,
-        offset: 5,
+        offset: 0,
         limit: 3,
         page: 0,
     },
-    user_purchases: [],
+    userPurchases: [],
+    loading: true
 }
 
 interface props {
@@ -25,8 +26,24 @@ export const PurchaseProvider = ({ children }: props) => {
     dispatch({ type: "load_result", payload: purchases })
   }
 
-  const fetchUserPurchases = async () => {
-      const res: any = await fetch("http://localhost:4000/user/purchases/1?limit=3&offset=5", {
+  const toggleLoading = () => {
+    dispatch({ type: "toggle_loading" })
+  }
+
+  const changePage = (page: number) => {
+    const currentPagination: Pagination = {
+        total:  purchaseState.pagination.total,
+        offset:  (page > 0 ? page : 1) - 1  * purchaseState.pagination.limit + 1, //(page - 1) * itemsPerPage + 1
+        limit:  purchaseState.pagination.limit,
+        page,
+    }
+    //console.log('current pagination', currentPagination)
+    dispatch({ type: "set_pagination", payload:  currentPagination, callback: fetchUserPurchases(currentPagination.limit, currentPagination.offset) })
+  }
+
+  const fetchUserPurchases = async (limit: number, offset: number) => {
+      console.log('fetchUserPurchases current pagination', limit, offset);
+      const res: any = await fetch(`http://localhost:4000/user/purchases/1?limit=${limit || 4}&offset=${offset || 0}`, {
         method: "GET",
       }).catch((error) => {
         console.error(error)
@@ -40,6 +57,8 @@ export const PurchaseProvider = ({ children }: props) => {
       } else {
           throw await res.text();
       }
+
+      toggleLoading()
     }
   }
 
@@ -47,6 +66,8 @@ export const PurchaseProvider = ({ children }: props) => {
     <PurchaseContext.Provider
       value={{
         purchaseState,
+        toggleLoading,
+        changePage,
         fetchUserPurchases,
         updatePurchasesResult,
       }}

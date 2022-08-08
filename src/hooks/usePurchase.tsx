@@ -1,15 +1,23 @@
-import { useContext } from 'react';
-import { PurchaseContext } from '../context/purchases/PurchaseContext';
+import { useContext } from "react"
+import { PurchaseContext } from "../context/purchases/PurchaseContext"
 
-export const usePurchase= () => {
+export const usePurchase = () => {
+  const {
+    purchaseState,
+    fetchUserPurchases,
+    updatePurchasesResult,
+    changePage,
+    toggleLoading,
+  } = useContext(PurchaseContext)
+  const { pagination, userPurchases, loading } = purchaseState
 
-    const { purchaseState, fetchUserPurchases, updatePurchasesResult } = useContext(PurchaseContext);
-    const { pagination, user_purchases } = purchaseState;
-
-    return {
-        pagination,
-        user_purchases,
-        fetchUserPurchases,
-        updatePurchasesResult
-    }
+  return {
+    pagination,
+    userPurchases,
+    loading,
+    toggleLoading,
+    fetchUserPurchases,
+    updatePurchasesResult,
+    changePage,
+  }
 }

@@ -35,7 +35,8 @@ export interface PurchaseDetail {
 
 export interface PurchaseState {
     pagination: Pagination,
-    user_purchases: Purchases | undefined
+    userPurchases: Purchases | undefined,
+    loading: boolean
 }
 
 export interface Pagination {
