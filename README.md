@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MELI Profile API
 
-## Getting Started
+## Description
 
-First, run the development server:
+<img align="right" width="150" height="150" src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.19.1/mercadolibre/180x180.png" alt="meli logo" /></img>
+
+This repository contains the source code of _MERCADO LIBRE PROFILE_ challenge
+
+> El frontend debe tener una ruta /profile en la cuál se podrá visualizar información general del
+usuario, un listado de sus compras, y se podrá acceder al detalle de cada una de estas.
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
+$ npm install
+```
+### Prerequisites  
+
+- NodeJs `^14.0.0`
+
+### Environment
+
+Create an `.env` file on root of project or export the requiered environment variables, you can check for the required env vars on `.env.example` file
+
+## Running the app
+
+Run the following to start the app locally
+```bash
+# development watch mode
+$ npm run dev
+
+# production mode
+$ npm run build && npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## WEB
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+MELI PROFILE WEB expose this pages:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* Home
+* User
+* Purchases
+* Purchase Details
 
-## Learn More
+>💡 Note: Remember that you need to attach a valid `x-api-key` to the header on each request. This is set as a minimum security layer
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Framework
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<a href="http://nextjs.com/" target="blank"><img align="left" width="100" height="100" src="https://camo.githubusercontent.com/92ec9eb7eeab7db4f5919e3205918918c42e6772562afb4112a2909c1aaaa875/68747470733a2f2f6173736574732e76657263656c2e636f6d2f696d6167652f75706c6f61642f76313630373535343338352f7265706f7369746f726965732f6e6578742d6a732f6e6578742d6c6f676f2e706e67" alt="Nest Logo" /></a>
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+<br>
+
+___
+
+<right> _Author:_ [@bastianaf](https://github.com/bastiaf)</right>
+
+
