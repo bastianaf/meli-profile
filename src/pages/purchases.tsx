@@ -21,7 +21,7 @@ const Purchases: NextPageWithLayout = () => {
   const { fetchUserPurchases, user_purchases } = usePurchase() 
   useEffect( () => {
     console.log("purchases initial state",user_purchases)
-    //fetchUserPurchases()
+    fetchUserPurchases()
     console.log("purchases loaded",user_purchases)
   }, []);
 
@@ -32,7 +32,7 @@ const Purchases: NextPageWithLayout = () => {
 
       <Stack pt="5" spacing={3}>
         <VStack direction="row">
-          {user_purchases.map((purchase, index) => {
+          {user_purchases?.map((purchase, index) => {
           return (
               <PurchaseCard  key={index} name={"Detalle"} purchase_detail={purchase} />
           );
