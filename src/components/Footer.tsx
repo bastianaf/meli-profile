@@ -11,7 +11,6 @@ export default function Footer() {
   return (
     <>
       <Stack
-        paddingY={0}
         borderTop={"1px"}
         borderTopColor={"gray.300"}
         backgroundColor={"white"}

@@ -10,13 +10,16 @@ import {
   Stack,
   VStack,
   Text,
+  Skeleton,
 } from "@chakra-ui/react"
 
 const Purchases: NextPageWithLayout = () => {
 
   const { loading, toggleLoading, userPurchases, fetchUserPurchases, pagination, changePage } = usePurchase() 
   useEffect( () => {
-    fetchUserPurchases(pagination.limit, pagination.offset)
+    if(!userPurchases || userPurchases?.length <= 0) {
+      fetchUserPurchases(pagination.limit, pagination.offset)
+    }
   }, []);
 
   const handlePageClick = (page: number) => {
@@ -27,13 +30,19 @@ const Purchases: NextPageWithLayout = () => {
   if(loading) {
     return (
       <>
-        <p> LOADING ... </p>
+        <Text fontSize="3xl"> Mis Compras </Text>
+        <Stack justifyContent="center" py="5">
+          <Skeleton height="200px" />
+          <Skeleton height="200px" />
+          <Skeleton height="200px" />
+          <Skeleton height="50px" />
+        </Stack>
       </>
     )
   } else {
     return (
       <>
-        <Text fontSize="3xl"> Compras </Text>
+        <Text fontSize="3xl"> Mis Compras </Text>
         
         <Stack pt="5" spacing={3}>
           <VStack direction="row">

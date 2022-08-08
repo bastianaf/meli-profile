@@ -109,7 +109,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
         purchase:
           userPurchases?.find((purchase) => purchase.id_compra === id) || null,
       }
-    })
+    }) 
     if (!purchaseDetailState.id_compra) {
       fetchPurchaseDetail()
     }

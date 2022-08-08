@@ -17,12 +17,13 @@ import {
   FormControl,
   StackDivider,
   Text,
+  Skeleton,
 } from "@chakra-ui/react";
 
 export default function Nav() {
 
   const { userProfile } = useUser();
-  const userName: string = `${userProfile?.nombre.toString()}`;
+  const userName: string | null = userProfile?.nombre ? `${userProfile?.nombre.toString()}` : null;
 
   return (
     <Stack paddingY={0}>
@@ -125,9 +126,14 @@ export default function Nav() {
                 </Stack>
               </Stack>
               <Stack direction="row" fontSize="sm" spacing={6}>
-                <Link href={`/profile`}> 
+
+                {
+                  userName ? <Link href={`/profile`}> 
                   <a>{ userName }</a>
-                </Link>
+                </Link> :  
+                <Skeleton height="25px" width="65px" /> 
+                }
+                
                 <Text cursor="pointer">
                 <Link href={`/purchases`}> 
                   Mis Compras 

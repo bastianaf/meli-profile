@@ -30,7 +30,7 @@ export default function SideBarLayout({
       >
         <GridItem px="2" pt="5" bg="white" area={"nav"}>
           <Box>
-            <VStack>
+            {/* <VStack>
               <Button w="100%">
                   Compras
               </Button>
@@ -38,7 +38,7 @@ export default function SideBarLayout({
                 Mi Perfil 
               </Button>
               <Button w="100%">Configuracion</Button>
-            </VStack>
+            </VStack> */}
           </Box>
         </GridItem>
 

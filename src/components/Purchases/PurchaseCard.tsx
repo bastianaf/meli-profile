@@ -58,8 +58,9 @@ export default function PurchaseCard({
           </Box>
           <Box alignContent="left">
             <Link href={`/purchases/${purchase_detail?.id_compra}`}>
+              
               <a>
-                <Button colorScheme='messenger' w="100%">Ver Compra</Button>
+                <Button colorScheme='messenger' w="100%">Ver Compra {purchase_detail?.id_compra}</Button>
               </a>
             </Link>
           </Box>

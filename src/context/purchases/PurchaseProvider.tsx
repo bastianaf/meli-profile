@@ -57,7 +57,6 @@ export const PurchaseProvider = ({ children }: props) => {
       } else {
           throw await res.text();
       }
-
       toggleLoading()
     }
   }
