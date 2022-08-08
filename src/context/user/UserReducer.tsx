@@ -2,7 +2,8 @@ import { UserState, User } from '../../interfaces';
 
 type UserAction = 
     | { type: 'login', payload: User }
-    | { type: 'logout', payload: { } };
+    | { type: 'logout' }
+    | { type: 'set_error' };
 
 export const UserReducer = ( state: UserState, action: UserAction ): UserState => {
 
@@ -19,6 +20,13 @@ export const UserReducer = ( state: UserState, action: UserAction ): UserState =
                 ...state,
                 authenitcated: false,
             }
+        
+        case 'set_error': 
+        return {
+            ...state,
+            authenitcated: false,
+            errorProfileFetch: true,
+        }
 
         default:
             return state;

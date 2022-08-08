@@ -10,6 +10,7 @@ interface UserProfile {
 
 export interface UserState {
     authenitcated: boolean,
+    errorProfileFetch: boolean,
     userProfile: User
 }
 

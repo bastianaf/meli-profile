@@ -33,7 +33,7 @@ export const PurchaseProvider = ({ children }: props) => {
   const changePage = (page: number) => {
     const currentPagination: Pagination = {
         total:  purchaseState.pagination.total,
-        offset:  (page > 0 ? page : 1) - 1  * purchaseState.pagination.limit + 1, //(page - 1) * itemsPerPage + 1
+        offset:  (page) - 1  * purchaseState.pagination.limit + 1,
         limit:  purchaseState.pagination.limit,
         page,
     }
@@ -43,7 +43,7 @@ export const PurchaseProvider = ({ children }: props) => {
 
   const fetchUserPurchases = async (limit: number, offset: number) => {
       console.log('fetchUserPurchases current pagination', limit, offset);
-      const res: any = await fetch(`http://localhost:4000/user/purchases/1?limit=${limit || 4}&offset=${offset || 0}`, {
+      const res: any = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/user/purchases/1?limit=${limit || 3}&offset=${offset || 0}`, {
         method: "GET",
       }).catch((error) => {
         console.error(error)

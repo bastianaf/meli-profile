@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useUser } from "../hooks/useUser";
+import Error from "next/error";
 
 import {
   Box,
@@ -22,9 +23,13 @@ import {
 
 export default function Nav() {
 
-  const { userProfile } = useUser();
+  const { userProfile, errorProfileFetch } = useUser();
   const userName: string | null = userProfile?.nombre ? `${userProfile?.nombre.toString()}` : null;
+  if (errorProfileFetch) {
+    console.log("ERROR:",errorProfileFetch)
+     return <Error statusCode={500} />
 
+  } 
   return (
     <Stack paddingY={0}>
       <Box backgroundColor="primary.500" boxShadow="sm" paddingY={2}>

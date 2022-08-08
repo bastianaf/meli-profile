@@ -10,18 +10,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <ChakraProvider theme={theme}>
         <Box minH="100vh">
-          <Alert status='warning'>
-            <Stack direction="row" mx="auto">
-              <AlertIcon />
-              <AlertTitle>¡Esta no es la web oficial de mercado libre !</AlertTitle>
-            </Stack>
-          </Alert>
           <Nav />
             {children}
           <Footer />
         </Box>
       </ChakraProvider>
     </>
-
   );
 }

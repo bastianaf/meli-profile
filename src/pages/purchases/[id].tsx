@@ -48,7 +48,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
   const fetchPurchaseDetail = async () => {
     if (id && userProfile) {
       await fetch(
-        `http://localhost:4000/purchase/${userProfile?.id_usuario}/${id}`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/purchase/${userProfile?.id_usuario}/${id}`,
         {
           method: "GET",
         }
@@ -68,7 +68,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
 
   const fetchShipmnetDetail = async (shipmentId: number | undefined) => {
     if (shipmentId) {
-      await fetch(`http://localhost:4000/shipment/${shipmentId}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/shipment/${shipmentId}`, {
         method: "GET",
       })
         .then(async (res) => {
@@ -86,7 +86,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
 
   const fetchTransactionDetail = async (paymentId: number | undefined) => {
     if (paymentId) {
-      await fetch(`http://localhost:4000/payment/${paymentId}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/payment/${paymentId}`, {
         method: "GET",
       })
         .then(async (res) => {

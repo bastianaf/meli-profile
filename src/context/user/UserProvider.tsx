@@ -7,6 +7,7 @@ import { UserReducer } from "./UserReducer"
 const INITIAL_STATE: UserState = {
   authenitcated: false,
   userProfile: null,
+  errorProfileFetch: false
 }
 
 interface props {
@@ -20,22 +21,26 @@ export const UserProvider = ({ children }: props) => {
     dispatch({ type: "login", payload: user })
   }
 
+  const setErrorUserProfile = () => {
+    dispatch({ type: "set_error" })
+    console.log(userState)
+  }
+
   const fetchUser = async () => {
-      const res: any = await fetch("http://localhost:4000/user", {
+    
+      const res: any = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/user`, {
         method: "GET",
       }).catch((error) => {
         console.error(error)
       })
 
-      if(res){    
-          if (res.ok) {
+      if(res && res.ok) {
           const data = await (res.json())
           //console.log("USER FETCH RESPONSE", data )
           updateUserProfile(data)
       } else {
-          throw await res.text();
+          setErrorUserProfile()
       }
-    }
   }
 
   return (
