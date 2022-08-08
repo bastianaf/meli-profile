@@ -1,8 +1,8 @@
-import type { NextPageWithLayout } from "../pages/_app";
+import type { NextPageWithLayout } from "../_app";
 import SidebarLayout from "@components/layouts/SideBarLayout";
 import Layout from "@components/layouts/Layout";
 import PurchaseCard from "@components/Purchases/PurchaseCard";
-import { usePurchase } from "../hooks/usePurchase";
+import { usePurchase } from "../../hooks/usePurchase";
 import { useEffect } from 'react';
 import { Paginate } from "react-paginate-chakra-ui";
 
