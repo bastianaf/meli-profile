@@ -1,4 +1,4 @@
-# MELI Profile API
+# MELI Profile
 
 ## Description
 
