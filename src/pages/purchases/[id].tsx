@@ -1,7 +1,6 @@
 import type { NextPageWithLayout } from "../_app";
 import SidebarLayout from "@components/layouts/SideBarLayout";
 import Layout from "@components/layouts/Layout";
-import PurchaseCard from "@components/Purchases/PurchaseCard";
 import { usePurchase } from "../../hooks/usePurchase";
 import { useUser } from "src/hooks/useUser";
 import { useEffect, useState } from 'react';
@@ -12,10 +11,12 @@ import {
   Stack,
   VStack,
   Text,
+  Button,
 } from "@chakra-ui/react"
 
 const UserPurchaseDetail: NextPageWithLayout = () => {
-  
+
+  /* Local State */
   const INITIAL_STATE: PurchaseDetail  = ({} as any) as PurchaseDetail
   const [ purchaseDetailState, setPurchaseDetail ] = useState(INITIAL_STATE)
 
@@ -25,9 +26,11 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
   const TRANSACTION_INITIAL_STATE: any  = ({} as any) as any
   const [ transactionState, setTransactionState ] = useState(TRANSACTION_INITIAL_STATE)
 
+  /* Global State */
   const { userProfile } = useUser()
   const { userPurchases } = usePurchase()
 
+  /* Router */
   const router = useRouter()
   const { id } = router.query
 
@@ -38,7 +41,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
       }).then( async (res) =>{
         if (res.ok) {
           const result = await (res.json())
-          console.log("result: " + JSON.stringify(result))
+          //console.log("result: " + JSON.stringify(result))
           setPurchaseDetail(result)
         }
       }).catch((error) => {
@@ -54,7 +57,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
       }).then( async (res) =>{
         if (res.ok) {
           const result = await (res.json())
-          console.log("SHIPMENT", result);
+          //console.log("SHIPMENT", result);
           setShipmentState(result)
         }
       }).catch((error) => {
@@ -70,7 +73,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
       }).then( async (res) =>{
         if (res.ok) {
           const result = await (res.json())
-          console.log("TRANSACTION", result);
+          //console.log("TRANSACTION", result);
           setTransactionState(result)
         }
       }).catch((error) => {
@@ -80,33 +83,41 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
   } 
 
   useEffect( () => {
-    console.log("use effect | current state: ", purchaseDetailState)
     setPurchaseDetail ((state): any => {
       return { ...state, purchase: userPurchases?.find( purchase => purchase.id_compra === id) || null}
     })
     if(!purchaseDetailState.id_compra){
-      console.log("use effect call fetch purchase detail | current state: ", purchaseDetailState)
       fetchPurchaseDetail()
     }
   }, [id, userProfile]);
 
   useEffect( () => {
     if(purchaseDetailState.id_envio){
-      console.log("use effect call fetch SHIPMENT / TRANSACTION detail | current state: ", purchaseDetailState)
-
       if(!shipmentState.id_envio){
         fetchShipmnetDetail(purchaseDetailState.id_envio)
       }
-
       if(!transactionState.id_transaccion){
         fetchTransactionDetail(purchaseDetailState.id_transaccion)
       }
     }
   }, [purchaseDetailState]);
 
+
+  const PurchaseDetailHeader = () => {
+    return (
+      <>
+        <Button onClick={() => router.back() } w="50%">
+          Volver
+        </Button>
+      </>
+    )
+  }
+
+
   if(!purchaseDetailState.id_compra) {
     return (
       <>
+        <PurchaseDetailHeader/>
         <p>
            LOADING ... 
         </p>
@@ -116,6 +127,7 @@ const UserPurchaseDetail: NextPageWithLayout = () => {
   } else {
     return (
       <>
+        <PurchaseDetailHeader/>
         <p>
           {purchaseDetailState?.id_compra || 'a'} {purchaseDetailState?.id_envio}
         </p>

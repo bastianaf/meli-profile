@@ -1,6 +1,7 @@
-import { Box, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Box, Button, SimpleGrid, Stack } from "@chakra-ui/react";
 import Image from "next/image";
 import { PurchaseDetail } from "../../interfaces";
+import Link from 'next/link';
 
 function dateFormatter(date: string) {
     const baseDate = new Date(date);
@@ -44,9 +45,16 @@ export default function PurchaseCard({ purchase_detail, name }: { purchase_detai
               </Box>
               <Box w="50%" alignContent="left">
                 {name}
+                { purchase_detail?.id_compra || '' }
               </Box>
               <Box alignContent="left">
-                { purchase_detail?.id_compra || '' }
+                <Link href={`/purchases/${purchase_detail?.id_compra}`}> 
+                  <a>
+                    <Button w="100%">
+                       Ver Compra
+                    </Button>
+                  </a>
+                </Link>
               </Box>
             </SimpleGrid>
         </Stack>

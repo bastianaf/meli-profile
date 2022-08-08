@@ -17,11 +17,9 @@ const Purchases: NextPageWithLayout = () => {
   const { loading, toggleLoading, userPurchases, fetchUserPurchases, pagination, changePage } = usePurchase() 
   useEffect( () => {
     fetchUserPurchases(pagination.limit, pagination.offset)
-    console.log("purchases loaded", userPurchases)
   }, []);
 
   const handlePageClick = (page: number) => {
-    console.log("handlePageClick", page)
     changePage(page)
     toggleLoading()
   };
@@ -52,7 +50,7 @@ const Purchases: NextPageWithLayout = () => {
           // required props 👇
           page={pagination.page}
           count={100}
-          pageSize={10}
+          pageSize={pagination.total}
           onPageChange={handlePageClick}
           // optional props 👇
           margin={1}
