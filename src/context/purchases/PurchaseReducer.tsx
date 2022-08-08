@@ -1,8 +1,8 @@
-import { PurchaseState, Purchases } from '../../interfaces';
+import { PurchaseState, Purchases, Pagination } from '../../interfaces';
 
 type PurchaseAction = 
     | { type: 'load_result', payload: Purchases }
-    | { type: 'set_pagination', payload: null };
+    | { type: 'set_pagination', payload: Pagination, callback:  Promise<void> };
 
 export const PurchaseReducer = ( state: PurchaseState, action: PurchaseAction ): PurchaseState => {
 
@@ -16,8 +16,7 @@ export const PurchaseReducer = ( state: PurchaseState, action: PurchaseAction ):
         case 'set_pagination':
             return {
                 ...state,
-                /* pagination:
-                 */
+                pagination: action.payload,
             }
 
         default:
