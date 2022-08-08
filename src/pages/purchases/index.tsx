@@ -39,7 +39,7 @@ const Purchases: NextPageWithLayout = () => {
           <VStack direction="row">
             {userPurchases?.map((purchase, index) => {
             return (
-                <PurchaseCard  key={index} name={"Detalle"} purchase_detail={purchase} />
+                <PurchaseCard  key={index} purchase_detail={purchase} />
             );
           })}
           </VStack>

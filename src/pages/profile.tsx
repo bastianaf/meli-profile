@@ -67,15 +67,6 @@ const Profile: NextPageWithLayout = () => {
     fetchLevelDetail()
   }, [userProfile]);
 
-
-      /* return(
-        <>
-          <CircularProgress isIndeterminate color='yellow.300' />
-        </>
-      ) */
-    
-
-
   return (
     <>
 
