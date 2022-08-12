@@ -58,11 +58,11 @@ const Purchases: NextPageWithLayout = () => {
         <Paginate
           // required props 👇
           page={pagination.page}
-          count={100}
-          pageSize={pagination.total}
+          count={10}
+          pageSize={3}
           onPageChange={handlePageClick}
           // optional props 👇
-          margin={1}
+          margin={0}
           shadow="lg"
           fontWeight="blue"
           variant="outline"

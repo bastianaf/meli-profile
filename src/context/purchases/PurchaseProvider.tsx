@@ -31,9 +31,10 @@ export const PurchaseProvider = ({ children }: props) => {
   }
 
   const changePage = (page: number) => {
+    console.log(page)
     const currentPagination: Pagination = {
         total:  purchaseState.pagination.total,
-        offset:  (page) - 1  * purchaseState.pagination.limit + 1,
+        offset:  (page) * purchaseState.pagination.limit,
         limit:  purchaseState.pagination.limit,
         page,
     }
